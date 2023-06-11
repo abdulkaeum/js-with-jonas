@@ -1,0 +1,55 @@
+>> Synchronous code
+    > Synchronous is the opposite to Asynchronous
+    > Synchronous means exucting code line by line of execution
+    > That means each line waits for the line above to finish executing
+    > This creates a problem when 1 line of code take stoo long to run
+    > e.g an alert will block the code execution, nothing will continue to execute until we ok it
+
+    some code here
+    alert()
+    some code here -> this line won't get executed
+
+>> Asynchronous code
+    > Asynchronous means not accouring at the same time
+
+    some code here - executed
+    setTimeout(function(){
+        some code here - executed in the future i.e 5 seconds
+    }, 5000)
+    some code here - executed before the setTimeout becuase it's Synchronous code
+
+    > The setTimeout is a non blocking code i.e Asynchronous code.
+    > It will register the callback to execute in 5 seconds and allow the executing code to continue moving on
+    > So execution does not wait/pause/block at the time setTimeout is called
+
+    > NOTES: just because the setTimeout takes a callback, that is Asynchronous, that does not mean a callback that's required on the map method is also Asynchronous. dont't be confused by this!
+
+    > Another example - Asynchronous img loading in background with event and callback
+
+        const img = document.querySelector('.dog')
+        img.src = 'dog.png'
+        img.addEventListener('load', function(){
+            img.classList.add('fadeIn')
+        })
+        p.style.width = '300px'
+
+        img.src is an Asynchronous code, setting the src attr is loading an image in the background
+        once finshed loading, a load event will be omiited by JS.
+        we then can listen for that event in order to act on it
+        WE WAIT FOR THIS IMG TO BE LOADED USING THE addEventListener AND CODE IS NOT BLOCKED, IT MOVES ON
+
+        SO YOU'RE ESEENTIALLY WRITTING FUTURE CODE TO BE EXECUTED AT A SPECIFIC TIME WHILE PART OF THE CODE IS WORKING IN THE BACKGROUND
+
+>> AJAX - Asynchronous JavaScript and XML
+    > AJAX calls alllow us to request data from web servers in an Asynchronous way
+    > So without reloading the page - data is fetched in the background
+    > i.e a client/browser can make a HTTP (GET / POST ETC) request to a web server asking for data 
+        > the server will then send back a resposne with the data 
+        > the web server will have a web API to interact with 
+    > XML not longer used in many cases
+    > JSON data format most popular API format today
+        > it's a JS obj converted in to a string
+            > very easy to send across the web and use in JS 
+
+https://www.youtube.com/watch?v=DHvZLI7Db8E
+https://www.youtube.com/watch?v=Kpn2ajSa92c

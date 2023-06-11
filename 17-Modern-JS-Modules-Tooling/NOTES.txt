@@ -1,0 +1,51 @@
+## Modules
+
+    > Re-usable code
+    > Usually a stand alone file
+        why:
+        Abstracted code
+        Organised code 
+        Reuse code
+
+    ES6 Modules
+        Exports
+        Imports
+            Need to happen at top level
+            Imports are hoisted! NO Matter where you are importing, it's like code is moved to the top of file, It's the 1st thing that happens in a module.
+        HTML Linking <script type="module" src="script.js"></script>
+        Can only import/export outside of a block... top level
+        Exporting = Async
+        Importing = Sync
+        Values are refernced.. as if they were actually there. So they will change if manipulated
+        They get executed first after being parsed and linked
+
+
+## CMD line
+    ls                              show file in dir
+    cd ..                           go up 1 level
+    clear
+    Cntl C                          cancel
+
+    mkdir newFolder                 make folder
+    rmdir newFolder                 deletes folder
+    touch test.js testAnother.js    new file
+    rm test.js                      deletes files
+    mv test.js ../                  moves files
+    sudo                            higher permission
+
+npm
+    install the software from website on to your machine
+    npm install <package>
+    npm install <package>@1.2    The package version
+    npm install                  This installs everything from the package.JSON file
+    npm i parcel --save-dev      This installs at devDependenies, a tool to build our app
+    npm uninstall <package>
+
+CLEAN CODE
+    Pass in the data to functions to return new data - do not mutatate outside data, don't rely on the scope chain
+    See screen shots in this dir
+
+
+         
+         
+        

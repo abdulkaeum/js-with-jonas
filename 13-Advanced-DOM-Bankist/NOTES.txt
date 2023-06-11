@@ -1,0 +1,110 @@
+// HOW THE DOM REALLY WORKS
+
+    DOM = interface between browser and js code
+    Allows us to use JS to interact with browser
+    Create, modify, delete html elements
+    Set styles, classes, and attributes
+    Listen to and react to events
+    DOM tree is generated from the html doc, which we can interact with via methods and props
+    The DOM is a tree of different nodes each that has it's own child node thus having it's own methods and props
+
+// Creating, selecting and deleting elements
+
+    document.querySelector()
+    document.querySelectorAll()
+    document.getElementById()
+    document.getElementByTagName()
+    document.getElementByClassName()
+
+// Creating and inserting elements
+
+    .insertAdjacentHTML()
+
+    const msg = document.createElement('div'); // DOM object
+    // add class
+    msg.classList.add('cookie-msg')
+    msg.textContent = 'text here'
+    msg.innerHTML = 'text text <button></button>'
+    const header = document.querySelector('.header');
+    header.prepend(msg); // added as the 1st element in the header element
+    header.before(msg);
+    header.after(msg);
+
+    document.querySelector('.btn--close').addEventListener('click', function(){
+        msg.remove();
+    })
+
+// Styles:
+
+    >inline style
+
+        msg.styles.backgroundColor = '#000000';
+        msg.style.width = '120%';
+        getComputedStyle(msg).color // the one in the css file otherwise nothing
+
+    >css vars in the :root in the css file
+        the root is the equivalant of the documnet dom, so...
+    document.documentElement.style.setProperty('--color-primary', 'red')
+
+    >attributes
+
+        const logo = document.querySelector('.nav__logo')
+        logo.getAttribute(alt) // get the alt text
+        logo.setAttribute(alt, 'new text') // set the alt text
+
+    >classes
+        classList.add('a','b','c')
+        classList.remove()
+        classList.toggle()
+        classList.contains()
+
+// Types of events and event handlers
+
+        const h1 = document.querySelector('h1')
+
+        const alertH1 = function(){
+            alert('in')
+         }
+
+         h1.addEventListener('mouseenter', alertH1)
+         h1.removeEventListner('mouseenter', alertH1)
+
+// Event Propagation: Bubbling and Capturing
+
+    // use Event Propagation to perform attaching event handlers once for better performance 
+
+// DOM Traversing
+
+    > Is walking through the DOM: downwards upwards and sideways
+        Selecting elements base/relative to another element
+        etc child elements no matter how deep
+
+     const h1 = document.querySelector('h1')
+     h1.querySelectorAll('deeper__elements')
+     h1.children
+     h1.childNodes
+     h1.firstElementChild
+     h1.lastElementChild
+
+// Lifecycle DOM Events
+
+    Lifecycle = page is first accessed from leaving it
+
+    1. DOMContentLoaded event: fired soon as the HTML is completley parsed and downloaded
+        All scripts must be downloaded and executed before the DOM contented loaded event can happen
+        Happend on the document
+        Only needs html and js scipts
+
+    2. Load event: when everything is loaded css images 
+
+    3. beforeunload event: soon as the user leaves the page x buttun
+
+// Script loading: scripted downloaded and executed
+
+                                Head                                        End of Body
+    <script src="">             HTML, script+exucution, rest of HTML        Full HTML, script+exucution
+    <script async src="">       HTML+script same time, html paused          no affect here
+    <script defer src="">       HTML+script, execution at end only          no affect here
+
+    Defer: scripts are executed in order
+    Google analytics for example can use async 

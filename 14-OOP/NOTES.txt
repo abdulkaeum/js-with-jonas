@@ -1,0 +1,19 @@
+>OOP in JS
+    > OOP in JS are protypes
+        > All objects are link to a prototype obj
+            > Each obj has a protype
+            > The protypes obj contains methods and properies that are accessible to all objs linked to that prototype. AKA prototypal inheritance
+                >prototypal inheritance: all objs that are linked to a certian prototype obj can use the methods and props that are defined on that prototype.
+                >So objs inherit methods/props from the prototype.
+                >It's different to class inheritance
+                >We can also say that methods are delagated to the linked prototype obj
+
+                >Array.prototype.map()
+                    >arr = [1, 2, 3]; arr.map()
+                    >map is a prototype of Array so arr has access to map
+
+                > 3 ways of creating prototypal inheritance
+                    > constructor functions
+                    > ES6 classes = THE MORE MODERM WAY
+                    > Objext.create() = THE EASIEST WAY
+                        > creating a blank obj from a class Object.create(class name)

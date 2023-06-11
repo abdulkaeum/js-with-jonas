@@ -1,0 +1,110 @@
+>>Execution Context
+    >After the JS engine has finished compiling our code, an execution context (box/environment) is created and within it:
+        >First top level/global code is CREATED i.e variables at top level not variables in functions
+        >Top level functions are also declared so can be called later
+        >Then they are EXECUTED
+        >Each function will create it's own execution context, within it, a:
+            >Variable environment
+            >scope Chain
+            >the this keyword variable excluding for any arrow functions
+            >arguments object (vars passed into the function) excluding for any arrow functions
+
+>>Call stack
+    Holds all the execution context that have been created. they get stacked on top of each other  
+
+>>Scope and The Scope Chain
+    
+    Scope Concept
+        >Scoping
+            Where do our variables live
+            Where can we access a certain variable and where not
+        >JS uses Lexical scoping
+            Scoping is controlled by the placement/location of functions and blocks
+            i.e A function within a function has access to it's parents variables
+        >Scope itself
+            Where a variable and functions are declared, there is:
+                Glabal scope:
+                    Top level scope; outside functions and any blocks, accessible Everywhere
+                Function scope
+                    Local scope, accessed inside function
+                Block scope
+                    Local scope, accessed inside blocks, wrapped in {}
+                    only let and const work here
+                    a var is will become function-scoped
+                        Const and let and block-scoped - accessiable from their block scope and below
+                        var are all function-scoped - will belong scoped to a function even declared within a block (chapter 92)
+                    function declared within a blocked are also blocked scoped
+
+        >>The Scope Chain
+            A inner scope has access to ALL it's PARENT'S (not sibling scopes) scopes (CORRECT)
+            i.e scopes look up for access can't look down. Up meaning it's parent scope and not same level scope
+            AKA the Scope Chain 
+
+            Every scope will look up in the scope chain (outer/parent scope) to look for a var or function 
+
+>>Scope Chain vs Call Stack
+    They are not related
+    Order of functions called do not affect the call stack; it's simply uses the Lexical scoping
+    This also includes functions args
+    *The scope chain is about the ORDER in which our functions are WRITTEN not CALLED 
+        So the order of function calls are not relevant to the scope chain 
+
+>>Variable Environment: Hoisting and The TDZ
+
+    >Hoisting
+        Makes variables usables before they are declared 
+        AKA: variables are lifted to the top of the scope.
+            What actually happens, before execution, vars are scanned for their declarations, if found it's palaced into a property in the var environment obj
+        AT THE END: allowed to initially use functions and vars EVERYWHERE!!!!
+        CAUSED PROBLEMS AS IT WAS FUNCTION/GLOBAL SCOPED
+        SO LET AND CONST CAME TO RESUE @ ES6 = BLOCK-SCOPED
+        Using a var before it is declared can break code/bugs
+        Hoisting creates all these issues = legacy design
+
+>>TDZ - TEMP DEAD ZONE
+    >vars are only safe to use after it is declared not before
+    >why? ES6 catches errors early - works on const and let 
+
+    USE CONST ALL THE TIME UNLESS LET, NEVER VAR
+    ALWAYS DECLARE ALL VARS AND FUNCTIONS AT THE TOP OF YOUR SCOPE BEOFRE USING THEM
+
+>>The this keyword/variable
+    >Created for every execution context (every function)
+    >Takes the value of (POINTS TO) the owner of the function
+    >NOt always static, depend how called
+        >Object                 = object that is calling the method
+        >Simple function call   = undefined = avoid
+        >Arrow functions        = Does not get it's own this keyword but gets it from it's parent
+        >Event Listener         = the DOM element
+
+>> Arrow vs regular functions (the pitfalls)
+
+// Arrow functions do not get their own this keyword
+// it uses the this keyword from its parent scope
+// So an arrow function inherits the this keyword from it's parent scope
+// in this case the global scope i.e window / window.fName
+// rule: never use an arrow function as a method on an abj
+// can be used from within a method
+// Arrow functions do not get the arguments keyword too.
+
+>> Primitives vs. Objects (Primitive vs. Reference Types)
+
+    HOW THEY ARE STORED IN MEMORY
+
+    DATA TYPES:
+    >Primitives types: const not imutable
+        > stored in the call stack/execution context
+        string
+        number
+        bigint
+        boolean: true|false
+        undefined: var not defined|empty
+        console.log(let year) // undefined
+        null: empty
+    >Reference types: const imutable
+        > stored in the HEAP
+        arrays
+        objects
+        functions
+
+        

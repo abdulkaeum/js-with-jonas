@@ -1,0 +1,3 @@
+// Selectors
+    querySelector //slow
+    getElementById // faster

@@ -1,0 +1,89 @@
+>> Default Parameters
+
+    > Placed within the construtor like php
+    > can contain any expression
+    > use undefined to skip a param
+
+>> Passing Arguments Works: Value vs. Reference
+
+    > primitive values passed are only a copy, a new var
+        > does not change original var if you named it differentley
+        > but if you used the same var name as to the one outside its scope then it will change
+    > reference values (objs) are a refernce to the original
+        > will change the original reference value / thus the data itself
+        > not a new var = just a reference to the one in heap 
+    > JS does not have 'pass' by reference like &php just pass by value
+        > we pass a reference (memory address) but not 'by' reference
+
+>> First-Class and Higher-Order Functions
+
+    > First-Class Functions
+        > simply values
+        > just another 'type' of obj
+            > can:
+                > store then in vars
+                > pass them as function args > Higher-Order Functions
+                > return functions from within functions > Higher-Order Functions
+                > call methods on function i.e. .bind()
+        > makes it possible to use on higher order functions
+
+    > Higher-Order Functions: 
+        > a function that recieves another function as an arg: AKA callback: 'call me back later' when ready
+
+            const greet = () => console.log('hey');
+            btn.addEventListener('click', greet);
+
+        > a function that returns another function
+
+            function count() {
+                let counter = 0;
+                return function(){
+                    counter++;
+                }
+            }
+
+        Summary: addEventListener() + count() are the higher order function 
+
+>>Functions Accepting 'Callback' Functions
+    >abstraction
+    https://www.youtube.com/watch?v=kz_vwAF4NHI
+
+>> Functions Returning Functions
+    function count() {
+                let counter = 0;
+                return function(){
+                    counter++;
+                }
+            }
+
+>> The call and apply Methods
+
+    > manually set the this keyword
+    > the call keyword allows us to explicitly set the this keyword to a obj method
+    i.e book.call(eurowings, 23, 'Sarah');
+    book is a method belonging to a method
+    the call will apply that method to the eurowings obj 
+    
+    >!! allows us to use a method written in one obj on many others !!<
+
+    > call and apply replaced with the bind
+
+>> The bind Method
+
+    > manually set the this keyword
+    > difference is bind does note call the function, 
+    instead it returns a new function where the this keyword
+    is bound.
+        > it's set to whatever value we pass into bind
+    > allows you to then re-use the function instead of calling the call method all the time
+    >gives us a new function binded to the obj we assigned it
+    >can also set default params when setting up the bind
+
+>> Immediately Invoked Function Expressions 
+
+>> Closures
+
+    > They happen in certain situations, we don't create them
+    > a closure is like a bagpack that a function carries around wherever it goes. This bag has all the vars that were present in the environment where the function was created - basically like a reference 
+    > thanks to the closure, a function does not loose connection to the vars that existed in the functions birth place
+    > a closre has priority over the scope chain to look for vars that were created there

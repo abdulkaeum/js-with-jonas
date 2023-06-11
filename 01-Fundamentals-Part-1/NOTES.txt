@@ -1,0 +1,231 @@
+DATA TYPES:
+    >Primitives types: const not imutable
+        number: float and integers
+        string
+        boolean: true|false
+        undefined: var not defined|empty
+        undefined means var is declared without assigning a value
+        undefined var is type of undefined
+        console.log(let year) // undefined
+        null: empty
+        null is still a value (is just a representation of no value)
+        null is assigned manually not viA JS
+        null var is type of null| but JS will show it has object
+        null === undefined FALSE
+        https://www.youtube.com/watch?v=7bpQUVK9Gn4
+        NULL = I AM RETURNING THIS AS NULL
+        UNDEFINED = THIS THING HAS NOT BEEN ASSIGNED A VALUE
+        BigInt = ES2020
+    >None Primitives types: const mutable
+        arrays
+        objects
+        functions
+
+    >JS has dynamic typing: you dont need to set the data type just like PHP
+
+Declaring variables:
+    ES6 let myName; // this is undefine
+    myName  = "name"; defined now
+    const is read only
+    const must be initlised; have a value
+    let is re-assignable
+    Use const by default
+    var is function-scoped 
+    let/const are block-scoped
+
+ARITHMETIC / OPERATORS:
+    + (also used to contcat string)
+    -
+    *
+    /
+    %
+    let x = 15;
+    x += 10 (x is now 25)
+    -=
+    x *= 4 (x is now 100)
+    /=
+    x++ increment (101)
+    x-- de-increment (99)
+
+COMPARISON OPERATORS:
+    loose - will perform type conversion (implicite type COERSION)
+        == 
+            18 == '18' is true / converted '18' to number 18
+        !=
+        >=
+    strict - won't perform type CONVERSION
+        !==
+        === (explicite type conversion)
+            return true or false if both value are same AND of same data type
+            18 === 18 is true
+            18 === '18' is false
+    typeof 3 = number
+    typeof '3' = string
+
+OPERATOR PRECEDENCE:
+    () operations in parenthesis happen first
+    Math operators are executed before 
+    comparison operators 
+    assigment operators 
+    left-to-right: e.g. math ops 25 - 10 - 5 = 10
+    right-to-left: e.g. assignment ops var = 25 - 10 - 5 var = 10
+
+BOOLEAN LOGIC OPERATORS: AND, OR, NOT
+    if (A && B) executed if both A and B are true
+    if (A || B) executed if any A and B are true
+    if (!A) inverts A to it's opposite value, if A is true then !A will be false
+
+TEMPLATE LITERALS
+    Assembles mutliple pieces into one final string
+        `I'm ${firstName}, a ${year - anyExpressionHere} years old ${job}!`
+        `My name is Abdul`
+        `This is line 1
+        this is line 2`
+    Esaping:
+        let = myName = "my name, is \"Abdul\"";
+        let = myName = 'Abdul\'s'
+
+TYPE CONVERSION AND COERSION:
+    CONVERSION: when we 'manually' convert one type to another [EXPLICIT]
+        let inputYear = '1991'; input text from text field will come as a string
+        // add 18
+        console.log(inputYear + 18); this will instead concatenate i.e. 199118
+        console.log(Number(inputYear) + 18); now returns 2009
+    COERSION: when 'JS' converts one type to another [IMPLICIT]
+        when there is two diff types; js will convert one to match the other
+        e.g. when you have a number and + operator with stings = js converts to all strings
+        console.log('I am ' + 23 + ' years old'); // returns STRING 'I am 23 years old'
+        e.g. when you have numbers as strings and the - op = js will covert all to numbers
+        console.log('23' - '10' - 3); // returns 10 (23 - 10 = 13 - 3 = 10) converted the strings to NUMBERS
+            console.log('23' + '10' + 3); returns 23103
+        let n = '1' + 1; // n is '11' string
+        n = n - 1; n is JS converted to number 11 due to the minus
+        console.log(n) returns 10
+
+        2+3+4+'5' // 95 (2 + 3 = 5 + 4 = 9 + string '5' concatenates to 95)
+
+TRUTHY VS FALSY VALUES
+    FALSY: not exactly false values but will become false when we try to convert them into booleon context
+        not initially false but will become false when coverted to a boolean
+        if (0, '', undefined, null, NaN, false) { not executed } else { executed }
+    TRUTHY
+        everything else not above e.g. 1, 'string' = true
+
+    console.log(Boolen(0)); // false
+    console.log(Boolen(undfined)); // false
+    console.log(Boolen('Abdul')); // true
+
+    let hieght = 0;
+    if(hieght) { run code}
+    0 is a falsy value run code will not run
+
+    numberOfKids = 0
+    if(!numberOfKids)  // 0 is a falsy value, so oppostive of false (!numberOfKids) = true
+        {
+            this block WILL run!
+        }
+    
+SWITCH CASE: works in strict mode
+    switch (day) {
+        case 'a':
+            console.log('a');
+            break;
+        case 'b':
+        case 'c':
+            console.log('b and c');
+            break;
+        default:
+            console.log('d');
+    }
+
+STATEMENTS VS EXPRESSIONS
+    EXPRESSIONS: produces a value i.e 3 + 3 = value 6, 1999 = value 1999, true = value true
+    STATEMENTS: not produces a value i.e if (1=1) const str = 'abc';
+
+IF STATEMENTS:
+    else if NOT elseif
+
+    Single Ternary: an expression so it returns a value
+        const var = 1 > 2 ? run if true : run if false
+    Multiple Ternary: chaining.
+        (true) ? "run if true" 
+            : (true) ? "run if true" : "run if false";
+        Same as:
+        If (condition) {
+        } else if (condition) {
+        } else {
+        }
+
+------------------------------------------------------------------------------------------------------------  
+
+SCOPE:
+    Functions have access to global var
+    and undeclared ones (avoid undeclared)
+
+    Local scope: vars within functions can't be accessed outside them
+    Local vars override the globals.
+
+JS FUNCTIONS:
+    arr.push() - add to end
+    pop() - remove from end
+    shift() - add to start
+    unshift() remove from start
+    hasOwnProperrties() - if prop exists
+    length() - arr/obj count
+    Math.random() // random decimal numbers
+    Math.floor(Math.random() * 9) // 0 - 9
+    parseInt("007") - converts to int 7
+    isNaN - check to see if not a number
+
+RECURSION:
+    Iterative: 
+        while loop
+        for loop
+    Recursive: 
+        fn() calling itself, 
+        just reads clear
+        can cause inifinite loop!
+        must have a kill switch
+            recursive case: calls itself
+            base case: stops calling itself (the kill)
+
+    functon cntDown(i) {
+        console.log(i);
+        i <= 1 ? return; : cntDown(i - 1);
+    }
+    cntDown(5);
+
+
+    CALL STACK:
+    Function gets added to top of stack 1 at a time. When needed it takes the 1st item from the stack.
+
+    function fact(x) {
+        if (x == 1) {
+            console.log("one");
+            return 1;
+        } else {
+        let y;
+        y = x * fact(x-1);
+        console.log(y);
+        return y;
+        }
+    }
+
+    fact(3);
+
+    Results:
+    one | 1
+    2
+    6
+
+    Placed in stack one by one:
+    At first x is at 3
+    1st call fact(3-1) //x is at 3, sending (2)
+    2nd call fact(2-1) //x is at 2, sending (1)
+    3rd call fact(1) returns "one" | 1
+
+    Returns in order
+    3rd call gets returned 1st as 1
+    2nd call gets returned 2nd as 2 * 1 = 2
+    3rd call gets returned 3rd as 3 * 2 = 6
+

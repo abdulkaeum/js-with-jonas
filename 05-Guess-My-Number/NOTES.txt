@@ -1,0 +1,46 @@
+//DOM
+/*Ducument Object Model
+    A copy of your HTML doc
+    Allows DOM manipulation
+    DOM (browser implemented) !== JS*/
+
+// SELECTING AN ELEMENT
+document.querySelector('.message');
+// method available on the DOM
+//returns <p class="message">Start guessing...</p>
+
+// SELECTING TEXT WITHIN ELEMENT
+document.querySelector('.message').textContent;
+//returns Start guessing...
+
+// GET INPUT VALUE FROM TEXT INPUT
+document.querySelector('.guess').value;
+
+// UPDATEING TEXT WITHIN ELEMENT
+document.querySelector('.message').textContent = 'Correct number';
+
+// SET INPUT VALUE TO TEXT INPUT
+document.querySelector('.guess').value = 23;
+
+// SET CSS
+document.querySelector('body').style.backgroundColor = '#60b347';
+// select elemnt.style.css prop = 'string'
+
+// HANDLING CLICK EVENTS
+// these a are event listeners
+// these listen to events that happen
+// i.e mouse click, mouse move, key press etc
+// then react to that event in the function
+
+document.querySelector('.check').addEventListener('click', function () {
+  console.log(document.querySelector('.guess').value);
+
+  document.querySelector('.message').textContent = 'Try again!';
+});
+// click = type of event
+// function = event handler
+
+// set secret number
+const number = Math.random(); // 0.121212
+const number = Math.trunc(Math.random() * 20); // 1 - 19
+const number = Math.trunc(Math.random() * 20) + 1; // // 1 - 20

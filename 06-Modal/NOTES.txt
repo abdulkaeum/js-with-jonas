@@ -1,0 +1,27 @@
+// Limitation of the querySelector
+    document.querySelector('.class')
+    it only selects the first element if it finds more than one
+
+// Select all matching elements
+    document.querySelectorAll('.class')
+    returns an array of elements
+
+// Working with classes
+    document.querySelectorAll('.class')
+        .classList.remove('class name to remove')
+
+    document.querySelectorAll('.class')
+        .classList.add('class name to add')
+
+    document.querySelectorAll('.class')
+        .classList.contains('class you are looking if set')
+
+// use function expressions on addEventListener
+    // write a an expression function
+    // store in a var
+    // us the function in the addEventListener instead of a anonymous funtion
+
+// respond to a keypress / global events / listend for on the whole DOM
+    // keydown = key pressed
+    // keypress = key held on 
+    // keyup = when key is released

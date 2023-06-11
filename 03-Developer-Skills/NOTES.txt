@@ -1,0 +1,13 @@
+DEBUGGING
+    console.log()
+    console.table() // for big objects
+    
+    Chrome Dev Tools
+        Sources tab
+        Script.js file
+        Add break points next to line numbers = execution will stop at that break point for all vars
+        Use step button to execute next line code
+        Useful for debugging data in loops
+
+    js
+    insert keyword 'debugger' on a line and check the console

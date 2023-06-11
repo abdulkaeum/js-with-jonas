@@ -1,0 +1,149 @@
+STRICT MODE:
+    'use strict' at top of file
+    Stops us from writing bad code that will fail silently in non strict mode
+    It will fail upon a variable being set but not declared
+    Tells you about using reserved words as variables i.e private, interface
+
+FUNCTIONS:
+    -A function without a return is undefined
+    -Calling a function can be assigned to a var
+    -Recieve and Returns data
+
+    -FUNCTION DECLARATION:
+        -function declarations can be called 'before' one is defined
+        const age = calAge1(10);
+        function calAge1(age) {
+            return age;
+        }
+
+    -FUNCTION EXPRESSIONS
+        -an anonymouse function stored in var 
+        const calAge2 = function (age){
+            retrun age;
+        }
+        calAge2(10)
+
+    -ARROW FUNCTION
+        -shorter and faster to write
+        -no braces
+        -always returns
+        -a function expression
+        -do not get the 'this' keyword
+        -stored in var
+
+        -1 param, 1 body line
+        const calAge3 = age => 10 - age;
+        const value = calAge3(20);
+
+        -1+ body line
+        const myRetirement = birthYear => {
+            const age = 2037 - birthYear;
+            const retirement = 65 - age;
+            return retirement;    
+        }
+        myRetirement(1997);
+
+        -1+ param
+        const myRetirement = (birthYear, name) => {
+            const age = 2037 - birthYear;
+            const retirement = 65 - age;
+            return `${retirement} ${name}`;    
+        }
+
+        myRetirement(1997, 'Abdul');
+ 
+    -FUNCTIONS CALLING FUNCTIONS
+        function cutFruit(fruit) {
+            return fruit * 4;
+        }
+
+        function makeJuice(apples, oranges) {
+            applePieces = cutFruit(apples);
+            orangePieces = cutFruit(oranges);
+
+            return `1 juice with ${applePieces} apples pieces and ${orangePieces} orange pieces`;
+        }
+
+        makeJuice(2, 3);
+
+ARRAYS:
+    Data structure: None Primitives type: const imutable elements
+    arr.push(4)     // Adds to END of array arr     / returns length
+    arr.pop();      // Removes END value of arr     / returns value
+    arr.unshift(4)  // Adds to START of array arr   / returns length
+    arr.shift()     // Removes START value of arr   / returns value
+    arr.length      // count number of elements
+    arr[arr.length - 1] // get last element
+    arr.indexOf(4)  // returns the index value      / if not found returns -1
+    arr.includes(4) // returns true/false           / uses strict mode
+    Arrays do not have key value pairs only index numbers - so use objects
+
+OBJECTS:
+    const myDog = {
+        name: "Harry",
+        "prop 2": 2 - 1,
+        3: [1, "dog"]
+    }
+
+    Non string properties are typecasted to strings '3'
+
+    (DOT notation)
+        myDog.name;
+
+    (BRACKET notation)
+        myDog['prop']
+        myDog['prop 2']
+        const nameKey = 'Name';
+        myDog['first' + nameKey]
+
+    (aasign new prop)
+        myDog.country = "UK"; // country does not exists but this will add it
+
+    (re-asign an existing  prop)
+        myDog.age = 10;
+
+    delete myDog.age;
+
+    obj.hasOwnProperty("name") true/false
+
+    You can have objects in arrays
+    Objects in properties or of properties 
+    myStorage.car.inside["glove box"]
+    //2nd object, 2nd element in the list[]
+    myDog[1].list[1];
+    You can have functions in props
+
+    -Object methods
+        const obj = {
+            name: "Abdul",
+            calAge: function(age) {
+                return year - 2000;
+            },
+            calAge2: function() {
+                return this.age - 2000;
+            },
+            calAge3: function() {
+                // store new age on to the obj
+                this.newAge = this.age - 2000;
+            },
+            age: 18,
+            location: 'UK' 
+        }
+
+        obj.calAge2();
+        obj.calAge3();
+
+FOR LOOPS:
+    for(let i = 0; i < arr.length; i++) //FORWARDS
+    for(let i = arr.length - 1; i >= 0; i--) //BACKWARDS
+    1. initialiation
+    2. condition must be true to interate
+    3. end of each intertaion ++
+
+DO WHILE:
+    Do {} no matter what
+    Carry on doing while condition is met
+    iF condition is always true this will creat an infinit loop
+        You must change the condition within the loop so it DOES end 
+    Used when not knowing how many intertaions the loop wil have
+

@@ -1,0 +1,88 @@
+>> Converting strings to numbers
+
+    > Number('23') // 23
+    > +'23' // 23 / performs type coersion
+
+    > pasing
+        >Number.parseInt('20px', 10) // 10 = base 10
+        >Number.parseFloat('2.5rem') // 2.5
+
+> Check value for Number
+    >Number.isNan(20) // false
+    >Number.isNan('20') // false / DOES NOT WORK ON ALL 
+    >Number.inFiniate(20) // true 
+    >Number.inFiniate('20') // false / inFiniate is better to use 
+
+> Math and rounding
+
+    > Math.max(1, 2, 3, '4') // 4
+    > Math.min(1, 2, 3, '4') // 1
+    
+    > Math.random() // 0 - 1
+    > Math.trunc(Math.random() * 6) + 1 // 0 - 6
+
+    > Math.trunc(23.3) // 23
+    > Math.round(23.9) // 24
+    
+    > Math.ciel(23.3) // up 24
+    > Math.floor('23.3') // down 23 / work like trunc but floor works on -numbers
+
+    > var.toFixed(2) // two decimal places for a number
+
+> Numeric Separators
+    15_00 // 1500
+
+_____________________________________________________________________________________
+
+
+> Create a date
+    const now = new Date(); // today
+    new Date('December 24, 2015') // not safe
+    new Date('2019-11-18T21:31:17.178Z') // ok JS crated anyway
+    z = UTC = univeesal time = time without any time zone in London
+    new Date(year, month, date, hh, mm, ss);
+
+> Woking with dates
+    now.getFullYear()
+    now.getMonth()
+    now.getDay()
+    now.getTime() // time stamp since passed Jan 1st 1970
+    Date.now() // time stamp now since passed Jan 1st 1970
+
+    // also have the set
+    setFullYear()
+
+_____________________________________________________________________________________
+
+> Operations With Dates
+    const future = new Date(2037, 10, 19, 15, 23)
+    Number(future) // 2142246980000 / timestamp in milli seconds
+
+    const daysPassed = (date1, date2) => (date2 - date1) / (1000 * 60 * 60 * 24)
+    daysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24)) // 10 days
+
+_____________________________________________________________________________________
+
+>setTimeout = runs just once after a defined time
+            = shedule a function
+
+    const milliseconds = 3000; // 3 seconds
+    const ing = ['olives', 'extra cheese'];
+    const pizza = setTimeout(function(){
+        console.log(`Here is your pizza with with ${ing1} ${ing2}`)
+    }, milliseconds, ...ing)
+    
+    // execution does not stop HERE, it registers the callback function and executes it after 3 seconds
+    // AKA Asyncrounos JS
+
+    if(ing.includes('olives')) clearTimeout(pizza) // stops it
+
+>setInterval = keeps running until we stop it
+
+    setInterval(function(){
+        console.log('text');
+    }, 1000)
+
+    // above callback is being executed every 1 second
+
+

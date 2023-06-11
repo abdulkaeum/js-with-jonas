@@ -1,0 +1,100 @@
+>> Destructuring Arrays
+    
+    >ES6
+    >unpacking arrays/objs into individual 'variables'
+
+>> Destructuring Objects
+
+    >ES6
+    >Must match extactly the property name using {prop1, prop2, etc} = obj
+    >you don't need to skip elements like destructuring Arrays
+
+>> Spread operator
+    
+    >ES6
+    >unpacking all array elements individually as 'values'
+        >expand an array to all it's elemnents 
+    >avoids using a loop and doing it manually
+    arr = [1, 2, 3]
+    ...arr prints 1, 2, 3
+    used for building arrays or passing values into a function
+    functionName(a, b, c){}
+    functionName(...arr);
+
+>> Rest Pattern & Paramters
+
+    >ES6
+    >Opposite to the spread operator
+    >Used on the left side of =
+    >Packs individual elements from an array into a new array
+    >the rest of the elements into an array
+    >the rest must be the last element
+    >there can only be 1 rest in destructering
+
+>> Short Circuiting (&& and ||)
+
+        > They can use any data type
+        > return any data type
+        > does not need to be booloan
+        > || oprator (||=)
+            > performs short Circuiting: returns the first value that is truthy in the chain
+        > && oprator (&&=)
+            > performs short Circuiting: returns the first value that is falsy in the chain
+
+>>Nullish Coalescing ?? (??=)
+
+    >ES2020
+    >checks for null or undefined 
+    >but if it's 0 or '' it will treat it as truthy values and return that
+    >so if the first upperhand was to be null or undefined then the second upperhand will return
+
+>> for-of Loop
+
+    > no need for counter/condition for loop
+    > designed just to get you the element
+    > use obj.prop.entries() function to get the value and count
+        > entries() will return an array (values + key)
+        > destructure the array and use the key as the counter 
+
+>> New object literals
+
+    > property names can be variables holding other objects
+    > properties can be computed [var[0]]:
+
+> Optional chaining
+
+    > Same as PHP
+    > use ? after a prop to check if it exists
+    > works on props and object methods
+        > obj.method?.(par)
+    > works on Arrays to check if empty 
+        > arr[0]?
+
+>> Looping Objects
+    Keys: Object.keys(the prop you need keys from obj.prop)
+        > returns an array
+    Values: Object.values(the prop you need values from obj.prop)
+    Keys and values: Object.entries()
+
+>>Maps
+
+    >data structure to map values to keys
+    > difference objects the keys are always strings
+    > difference in maps any type of keys
+        >objs, arrays or maps
+
+Maps or Objects
+
+    Arrays: contains duplicates
+            manipulate data
+
+    Sets: unique data
+        high performs
+
+    Objs: easier to access values using . or []
+        methods and this keyword 
+
+    Maps:   es6+
+            better performs
+            easy to loop
+            any data types for keys
