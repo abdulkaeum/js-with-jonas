@@ -21,8 +21,8 @@
     .insertAdjacentHTML()
 
     const msg = document.createElement('div'); // DOM object
-    // add class
     msg.classList.add('cookie-msg')
+    msg.classList.remove('cookie-msg')
     msg.textContent = 'text here'
     msg.innerHTML = 'text text <button></button>'
     const header = document.querySelector('.header');
@@ -73,18 +73,27 @@
 
     // use Event Propagation to perform attaching event handlers once for better performance 
 
-// DOM Traversing
+    1. add an event listener on the common parent el
+    2. use e.target to check which child el triggered the event
+    3. get it and use that to add you're event listener on onto
+
+// DOM Traversing 
 
     > Is walking through the DOM: downwards upwards and sideways
-        Selecting elements base/relative to another element
+        Selecting elements relative to another element
         etc child elements no matter how deep
 
      const h1 = document.querySelector('h1')
-     h1.querySelectorAll('deeper__elements')
-     h1.children
-     h1.childNodes
+     h1.querySelectorAll('deeper__elements within the h1')
+     h1.children [GET ALL]
+     h1.childNodes [GET ALL]
      h1.firstElementChild
      h1.lastElementChild
+
+     Also have parent verions
+
+     querySelector(class) - selects childs
+     el.closest(.class) - select the common parent of the element with class .class 
 
 // Lifecycle DOM Events
 

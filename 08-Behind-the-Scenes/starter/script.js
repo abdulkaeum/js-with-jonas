@@ -197,6 +197,7 @@ non primitives are stored in the HEAP beacuse they are too large (of data).
 None primitive types are reference types and carry the same address that holds tha data.
 So when you copy an obj and update one of it's props,
 you are actually just updating the original obj.prop because the copy is referencing the SAME obj 
+OBJECTS have an address in the call stack that point to an address in the heap holding the obj data = reference type
 */
 
 // another example

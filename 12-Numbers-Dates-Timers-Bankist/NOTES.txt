@@ -3,15 +3,17 @@
     > Number('23') // 23
     > +'23' // 23 / performs type coersion
 
-    > pasing
+    > parsing
         >Number.parseInt('20px', 10) // 10 = base 10
         >Number.parseFloat('2.5rem') // 2.5
 
-> Check value for Number
-    >Number.isNan(20) // false
-    >Number.isNan('20') // false / DOES NOT WORK ON ALL 
-    >Number.inFiniate(20) // true 
-    >Number.inFiniate('20') // false / inFiniate is better to use 
+> Check value if it's a Number
+    > is this value a number?
+        >Number.inFiniate(20) // true / 20 IS A NUNBER
+        >Number.inFiniate('20') // false / inFiniate is better to use 
+    > is this value NOT a number?
+        >Number.isNan(20) // false 
+        >Number.isNan('20') // false / DOES NOT WORK ON ALL 
 
 > Math and rounding
 
@@ -21,13 +23,18 @@
     > Math.random() // 0 - 1
     > Math.trunc(Math.random() * 6) + 1 // 0 - 6
 
-    > Math.trunc(23.3) // 23
-    > Math.round(23.9) // 24
+    > Math.trunc(23.3) // 23 // cuts away (truncates) the decimal places
+    > Math.round(23.9) // 24 // rounds towards closest integer number
     
-    > Math.ciel(23.3) // up 24
-    > Math.floor('23.3') // down 23 / work like trunc but floor works on -numbers
+    > Math.ciel(23.3) // up 24 
+        // rounds towards closest higher integer number. 3.5 -> 4 -3.5 -> -3
+    > Math.floor('23.3') // down 23 
+        // work like trunc but floor works on -numbers
+        // rounds towards closest LOWER integer number. 3.5 -> 3 -3.5 -> -4
 
     > var.toFixed(2) // two decimal places for a number
+
+    > Math.abs() returns the absolute value of a number -2 -> 2
 
 > Numeric Separators
     15_00 // 1500
@@ -49,7 +56,7 @@ ________________________________________________________________________________
     now.getTime() // time stamp since passed Jan 1st 1970
     Date.now() // time stamp now since passed Jan 1st 1970
 
-    // also have the set
+    // also have the set versions of the above
     setFullYear()
 
 _____________________________________________________________________________________
@@ -64,12 +71,12 @@ ________________________________________________________________________________
 _____________________________________________________________________________________
 
 >setTimeout = runs just once after a defined time
-            = shedule a function
+            = shcedule a function
 
     const milliseconds = 3000; // 3 seconds
     const ing = ['olives', 'extra cheese'];
     const pizza = setTimeout(function(){
-        console.log(`Here is your pizza with with ${ing1} ${ing2}`)
+        console.log(`Here is your pizza with ${ing1} ${ing2}`)
     }, milliseconds, ...ing)
     
     // execution does not stop HERE, it registers the callback function and executes it after 3 seconds

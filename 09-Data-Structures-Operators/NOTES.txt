@@ -12,7 +12,7 @@
 >> Spread operator
     
     >ES6
-    >unpacking all array elements individually as 'values'
+    >unpacking/expanding all array elements individually as 'values'
         >expand an array to all it's elemnents 
     >avoids using a loop and doing it manually
     arr = [1, 2, 3]
@@ -24,7 +24,8 @@
 >> Rest Pattern & Paramters
 
     >ES6
-    >Opposite to the spread operator
+    >Opposite to the spread operator 
+        i.e instead of spreading it packs it into [] 
     >Used on the left side of =
     >Packs individual elements from an array into a new array
     >the rest of the elements into an array
@@ -71,10 +72,9 @@
         > arr[0]?
 
 >> Looping Objects
-    Keys: Object.keys(the prop you need keys from obj.prop)
-        > returns an array
-    Values: Object.values(the prop you need values from obj.prop)
-    Keys and values: Object.entries()
+    Keys: Object.keys(obj) returns an array of keys
+    Values: Object.values(obj) returns an array of values
+    Keys and values: Object.entries() returns an arrays of k=>v
 
 >>Maps
 

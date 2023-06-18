@@ -32,7 +32,7 @@ export const AJAX = async function (url, uploadData = undefined) {
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
 
     // instead of returning a prmoise from this async fn, we need to return the data as the value
-    // this will be the 'resolved' VALUE of the promise that the getJSON() returns - not the promise itself
+    // this will be the 'resolved' VALUE of the promise that the AJAX() returns - not the promise itself
     return data;
   } catch (err) {
     // pass the err down to model.js not here

@@ -127,6 +127,7 @@ const calcDisplaytBalance = function (acc) {
 };
 
 // gen usernames - add prop username to each account
+// Abdul Kaeum => abdul kaeum => ['abdu','kaeum'] => ['a','k'] => ak
 const createUsername = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -152,19 +153,22 @@ btnLogin.addEventListener('click', function (eventParam) {
   // prevents form from submitting
   eventParam.preventDefault();
 
+  // will return 1 array element if found
   currentAccount = accounts.find(function (acc) {
     return acc.username === inputLoginUsername.value;
   });
 
+  // use optional chaining to check if anything in array
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and msg
     labelWelcome.textContent = `Welcome back, ${
+      // Abdul Kaeum => ['Abdul','Kaeum'] => Abdul
       currentAccount.owner.split(' ')[0]
     }`;
 
     containerApp.style.opacity = 100;
     inputLoginUsername.value = inputLoginPin.value = '';
-    inputLoginPin.blur();
+    inputLoginPin.blur(); // remove focus
 
     updateUi(currentAccount);
   }
@@ -235,7 +239,7 @@ let sorted = false;
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sorted);
-  sorted = !sorted;
+  sorted = !sorted; // set back to false to un-sort
 });
 
 /////////////////////////////////////////////////
@@ -302,13 +306,14 @@ currenciesUnique.forEach(function (v, k, m) {
 });
 const checkDogs = function (dogsJulia, dogsKate) {
   // correct dogsJulia
-  const correctDogsJulia = [...dogsJulia];
+  const correctDogsJulia = [...dogsJulia]; // create new array
   correctDogsJulia.splice(3, 4);
 
+  // create new array
   const remaining = [...correctDogsJulia, ...dogsKate];
 
   remaining.forEach(function (el, i) {
-    // if el >= aduly
+    // if el >= adult
     //puppy
   });
 };
@@ -332,10 +337,12 @@ const balance = movements.reduce(function (accumulator, el, i) {
   // 0 means where to accumulator will start from
 }, 0);
 
-// reduce - get Max value - 153. The reduce Method
+// reduce - get Max value chapter 153. The reduce Method
 const max = movements.reduce(function (accumulator, el) {
   // keep track of the current max value
+  // is 200 > 200?
   if (accumulator > el) return accumulator;
+  // el will be the current acc, the one that will return in end
   else return el;
 }, movements[0]);
 
@@ -361,17 +368,17 @@ movements.find(function (mov) {
   return mov < 0;
 });
 
-// some - return any element satisfing a condition
+// some - return boolen value if 'any' elements satisfy the condition
 movements.some(function (mov) {
   return mov > 0;
 });
 
-// every - returns every element satisfing a condition
+// every - return boolen value if 'all' elements satisfy the condition
 movements.every(function (mov) {
   return mov > 0;
 });
 
-// returen the INDEX that satisfies the condition
+// return the INDEX that satisfies the condition
 accounts.findIndex(function (acc) {
   return acc.username == 123;
 });
@@ -385,7 +392,8 @@ arrFlat.flat(); // [1 2 3 4 5 6 7 8]
 const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
 arrDeep.flat(2); // go 2 level deep
 
-// flat map - manual
+// 1. map over it
+// 2. flattern the results
 const accountMovsTotal = accounts
   .map(function (acc) {
     return acc.movements;
@@ -395,7 +403,8 @@ const accountMovsTotal = accounts
     return acc + mov;
   }, 0);
 
-// flatMap only 1 level deep so you still need flat()
+// use flatMap to perform step 1 and 2 in one go
+// flatMap works only 1 level deep so you still need flat()
 const accountMovsTotal2 = accounts
   .flatMap(function (acc) {
     return acc.movements;
@@ -442,9 +451,10 @@ console.log(xY); // ['0B', '1B', '2B', '3B', '4B', '5B', '6B']
 // get all movements into one array and sum it all up
 //const bankDepositeSum = accounts.map(acc => acc.movements).flat();
 const bankDepositeSum = accounts
-  .flatMap(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((sum, cur) => sum + cur, 0);
+  .flatMap(acc => acc.movements) // return 1 level array from a multi
+  .filter(mov => mov > 0) // return those > 0
+  // sum = acc starts at 0, curr = curr el
+  .reduce((sum, cur) => sum + cur, 0); // add each el to sum
 console.log(bankDepositeSum); // 25100
 
 //how many deposits have there been in the bank >= 1000

@@ -168,14 +168,16 @@ SCOPE:
 JS FUNCTIONS:
     arr.push() - add to end
     pop() - remove from end
-    shift() - add to start
-    unshift() remove from start
+    shift() - remove from start
+    unshift() - add to start
     hasOwnProperrties() - if prop exists
-    length() - arr/obj count
+    arr.length - arr/obj count
     Math.random() // random decimal numbers
     Math.floor(Math.random() * 9) // 0 - 9
     parseInt("007") - converts to int 7
-    isNaN - check to see if not a number
+    isNaN() - check to see if NOT a number
+    inFiniate()  - check to see IF a number - the go to method
+    
 
 RECURSION:
     Iterative: 
@@ -189,10 +191,10 @@ RECURSION:
             recursive case: calls itself
             base case: stops calling itself (the kill)
 
-    functon cntDown(i) {
+    const cntDown = functon(i) {
         console.log(i);
         i <= 1 ? return; : cntDown(i - 1);
-    }
+    };
     cntDown(5);
 
 

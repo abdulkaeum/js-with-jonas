@@ -84,6 +84,9 @@ class App {
 
     // the event handler makes use of the #workouts so need to bind it with the this to make use of
     // this.#workouts within the _moveToPopup method
+
+    // event delegation
+    // add event handler to the parent containerWorkouts and then...
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
@@ -94,10 +97,10 @@ class App {
       // getCurrentPosition: 1st param = sucess callback, 2nd param = failed callback
       navigator.geolocation.getCurrentPosition(
         /*
+        If access to Geo localization is granted, the navigator.geolocation.getCurrentPosition() method *calls the first callback function* that we passed as an argument. In this case, it's our this._loadMap() method.
+
         The problem here is with how the this._loadMap() method is called. It's called as a callback = regular fn.
         So it's not a method no more, it's a call back.
-
-        If access to Geo localization is granted, the navigator.geolocation.getCurrentPosition() method *calls the first callback function* that we passed as an argument. In this case, it's our this._loadMap() method.
 
         However, the getCurrentPosition() doesn't call our _loadMap() method on any specific object. It treats it as a regular function, a call back function. Because we are in a call back function, the this is lost/undefined as we are in a callback function within the navigator.geolocation.getCurrentPosition(
 
@@ -106,6 +109,16 @@ class App {
         So, we are trying to access the this keyword within the callback _loadMap() but _loadMap is at this point in the code is a regular function working inside navigator.geolocation.getCurrentPosition.
         If we were trying to use the this keyword outside of the callback it would work because the this keyword would be set, in this case the App instance. So in esense we are passing the this keyword into the callback function.
         Refer to chapter-237.png
+
+        237 = 13:00
+        ERROR: Cannot set property '#map' of undefined at _localMap
+
+        In a regular fn call, the this keyword is undefined
+        Regular fn call i.e a seperate fn on it's own not belonging to anything
+
+        So any this keyword in those functions will be undefined and point to the parent in that case the window
+
+        bind: creates a copy of the function and sets the this keyword in the function to whatever value we pass into bind. Bind does not call the function, it returns a new function
         */
         this._loadMap.bind(this),
         function () {
@@ -161,8 +174,10 @@ class App {
   }
 
   _toggleElevationField() {
-    // use DOM travesal to get to the closest parent .form__row
-    // closest selects parents not children
+    // this scenerio has nothing to do with the value selected from the drop down - we are not checking the value - just toggling classes from what's already there for the input fields in relation - this wat has less code
+    // use DOM travesal
+    // 1. select the closest parent with class .form__row for the input
+    // 2. toggle the class form__row--hidden
     inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
     inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
     // using toggling to make sure only one of the input is ever switched on/displayed
@@ -188,7 +203,9 @@ class App {
 
     if (type === 'running') {
       const cadence = +inputCadence.value;
-      // check data - if is not a number
+      // guard clause - checks for opposite of what we are interested in
+      // if the opposite is true we can throw an error
+      // i.e if validInputs() returns false then we invert that to true to run our guard close
       if (
         !validInputs(cadence, duration, duration) ||
         !allPositive(cadence, duration, duration)
@@ -200,7 +217,6 @@ class App {
 
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
-      // check data - if is not a number
       if (
         !validInputs(elevation, duration, duration) ||
         !allPositive(duration, duration)
@@ -294,6 +310,7 @@ class App {
   }
 
   _moveToPopup(e) {
+    // and then no matter where we clicked we will move up to the closest .workout li that was clicked from with the ul
     const workoutEl = e.target.closest('.workout');
 
     if (!workoutEl) return;

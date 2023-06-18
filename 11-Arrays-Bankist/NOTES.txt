@@ -5,14 +5,14 @@
     arr.push() // add to end
     arr.shift() // reomved from start
     arr.unshift // add to start
-    arr.slice(inc, exl) // acts like substr, use on arr and str
-    arr.splice(start, end, replace) // deletes els from orig
+    arr.slice(inc, exl) // acts like substr
+    arr.splice(start, end, replace) // delete / replace
     arr.reverse()
     arr.join(' - ') // joing all els with -
     arr.concat(arr2) // same as doing [...arr, ...arr2] 
     arr.at[-1] // get end el, usually arr[length - 1]
     arr.includes() // value === an element
-    arr.indexOff(''this value') returns the index 
+    arr.indexOff('this value') returns the index
     C:\Users\k4eum\Documents\Code\Languages\JS\complete-javascript-course-master\11-Arrays-Bankist\summary.png
 
 >> Looping arrays
@@ -24,10 +24,10 @@
     }
 
     > arr.forEach(function(el, i, arr) {
-        // arr.forEach takes a colosure(element)
+        // arr.forEach takes a callback fn
     })
     
-    >can't use break and continue
+    >can't use break and continue, use for of
 
 >> map, reduce, filter
 
@@ -35,7 +35,7 @@
 
     > arr.map(fn(el, i, arr){return el}) loops over array like forEach but returns new array
     > arr.filter.(fn(el, i, arr)) uses a condition and if passed returns a new array 
-    > arr.reduce.(function(accumulator, el, i, arr){ takes all arr elements and create just one
+    > arr.reduce.(function(accumulator, el, i, arr){ takes all arr elements and create just one VALUE
         return accumulator + el;
     }, 0) 
         accumulator is our snowball to one 'value', e.g. add all el together 
@@ -43,3 +43,10 @@
     > can chain each one on to the next
 
 >> chapter pratical lessons in end of script file
+
+
+>> arr.find(callback condition)
+    // returns 1st element of an array based on condition
+
+>> arr.findIndex(callback condition)
+    // returns 1st index of an array based on condition

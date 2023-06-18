@@ -100,7 +100,7 @@ console.log(open, close);
 /***********************/
 /***********************/
 
-// 1 2 2 3 4
+// [1, 2, 2, 3, 4]
 const newArr = [1, 2, ...arr];
 console.log(newArr);
 
@@ -112,7 +112,7 @@ console.log(...'Abdul');
 
 /***********************/
 /***********************/
-/* Rest Pattern */
+/* Rest Pattern = packing values into [] */
 /***********************/
 /***********************/
 
@@ -147,7 +147,7 @@ abc, [2, 3, 5, 6] */
 };
 add(2, 3);
 add(2, 3, 4);
-// array will be unpacking/expand i.e 2, 3, 5, 6
+// array will be unpacking/expanded i.e 2, 3, 5, 6
 add('abc', ...[2, 3, 5, 6]);
 
 /***********************/
@@ -157,7 +157,7 @@ add('abc', ...[2, 3, 5, 6]);
 /***********************/
 
 //*****/ || operator
-// returns the first value that is TRUTHY
+// returns the FIRST value that is TRUTHY
 // you can use non booleon values as per below
 // returns 99 as 99 was the first truthy value
 console.log(99 || 'Abdul');
@@ -172,7 +172,7 @@ const guests1 = restaurant.numGuestss ? restaurant.numGuestss : 10;
 const guests2 = restaurant.numGuestss || 10;
 
 //*****/ && operator
-// returns the first value that is FALSY
+// returns the FIRST value that is FALSY
 console.log(0 && 'and operator'); // returns 0
 console.log(1 && 'and operator'); // returns and operator
 console.log('hELLO' && 23 && null && 'ABDUL'); // returns null
@@ -275,7 +275,7 @@ const printGoals = function (...team) {
   for (let i = 0; i < team.length; i++) {
     let scoreCnt = 0;
     for (let x = 0; x < game.scored.length; x++) {
-      game.scored[x] == team[i] ? scoreCnt++ : 0;
+      game.scored[x] === team[i] ? scoreCnt++ : 0;
     }
     console.log(`${team[i]} - ${scoreCnt}`);
   }

@@ -4,10 +4,12 @@
     > can contain any expression
     > use undefined to skip a param
 
->> Passing Arguments Works: Value vs. Reference
+>> Passing Arguments Works: Value vs. Reference as per chapter 99
 
     > primitive values passed are only a copy, a new var
         > does not change original var if you named it differentley
+        > if you change a local passed in var then it's the same as 
+        let oldAge = age, the function will use oldAge
         > but if you used the same var name as to the one outside its scope then it will change
     > reference values (objs) are a refernce to the original
         > will change the original reference value / thus the data itself
@@ -61,7 +63,7 @@
     > manually set the this keyword
     > the call keyword allows us to explicitly set the this keyword to a obj method
     i.e book.call(eurowings, 23, 'Sarah');
-    book is a method belonging to a method
+    book is a method belonging to an obj
     the call will apply that method to the eurowings obj 
     
     >!! allows us to use a method written in one obj on many others !!<
@@ -85,5 +87,5 @@
 
     > They happen in certain situations, we don't create them
     > a closure is like a bagpack that a function carries around wherever it goes. This bag has all the vars that were present in the environment where the function was created - basically like a reference 
-    > thanks to the closure, a function does not loose connection to the vars that existed in the functions birth place
+    > thanks to the closure, a function does not loose connection to the vars that existed in the functions birth place, before removed from the call stack
     > a closre has priority over the scope chain to look for vars that were created there
